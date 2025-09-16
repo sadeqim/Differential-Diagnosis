@@ -1,279 +1,0 @@
-[2025-09-14 10:46:56] Job 1: clear-voice
-Found 1 file(s). Profile=hifi_48k
-Enhancing:   0%|          | 0/1 [00:00<?, ?it/s]Running MossFormer2_SE_48K ...
-
-  0%|          | 0/1 [00:00<?, ?it/s][A
-100%|██████████| 1/1 [00:03<00:00,  3.16s/it][A100%|██████████| 1/1 [00:03<00:00,  3.17s/it]
-Enhancing: 100%|██████████| 1/1 [00:05<00:00,  5.70s/it]Enhancing: 100%|██████████| 1/1 [00:05<00:00,  5.70s/it]
-OK: /home/user01/my-fastapi-voice/app/outputs/4/input/4.webm -> /home/user01/my-fastapi-voice/app/outputs/4/clear-voice/enhanced48k_4.wav
-Done.
-[2025-09-14 10:47:04] Job 2: facebook-denoiser
-INPUT_DIR: /home/user01/my-fastapi-voice/app/outputs/4/input
-OUTPUT_DIR: /home/user01/my-fastapi-voice/app/outputs/4/facebook-denoiser
-Using device: cuda
-Found 1 audio file(s).
-Denoising:   0%|          | 0/1 [00:00<?, ?it/s]/home/user01/facebook-denoiser/facebook-denoiser-venv/lib/python3.10/site-packages/torchaudio/_backend/utils.py:213: UserWarning: In 2.9, this function's implementation will be changed to use torchaudio.load_with_torchcodec` under the hood. Some parameters like ``normalize``, ``format``, ``buffer_size``, and ``backend`` will be ignored. We recommend that you port your code to rely directly on TorchCodec's decoder instead: https://docs.pytorch.org/torchcodec/stable/generated/torchcodec.decoders.AudioDecoder.html#torchcodec.decoders.AudioDecoder.
-  warnings.warn(
-/home/user01/facebook-denoiser/facebook-denoiser-venv/lib/python3.10/site-packages/torchaudio/_backend/ffmpeg.py:88: UserWarning: torio.io._streaming_media_decoder.StreamingMediaDecoder has been deprecated. This deprecation is part of a large refactoring effort to transition TorchAudio into a maintenance phase. The decoding and encoding capabilities of PyTorch for both audio and video are being consolidated into TorchCodec. Please see https://github.com/pytorch/audio/issues/3902 for more information. It will be removed from the 2.9 release. 
-  s = torchaudio.io.StreamReader(src, format, None, buffer_size)
-Denoising: 100%|██████████| 1/1 [00:00<00:00,  2.11it/s]Denoising: 100%|██████████| 1/1 [00:00<00:00,  2.11it/s]
-
-All files processed successfully 🎉
-Outputs saved under: /home/user01/my-fastapi-voice/app/outputs/4/facebook-denoiser
-Zipped /home/user01/my-fastapi-voice/app/outputs/4/facebook-denoiser as /home/user01/my-fastapi-voice/app/outputs/4/processed_FacebookResearch_Denoiser.zip
-You can download the zip manually from the server (e.g., via SCP).
-[2025-09-14 10:47:07] Job 3: deepfilternet
-/home/user01/deepfilternet/deepfilternet_venv/lib/python3.10/site-packages/df/io.py:9: UserWarning: `torchaudio.backend.common.AudioMetaData` has been moved to `torchaudio.AudioMetaData`. Please update the import path.
-  from torchaudio.backend.common import AudioMetaData
-2025-09-14 10:47:08 | INFO     | DF | Running on torch 2.8.0+cu128
-2025-09-14 10:47:08 | INFO     | DF | Running on host user01
-fatal: not a git repository (or any of the parent directories): .git
-2025-09-14 10:47:08 | INFO     | DF | Loading model settings of DeepFilterNet3
-2025-09-14 10:47:08 | INFO     | DF | Using DeepFilterNet3 model at /home/user01/.cache/DeepFilterNet/DeepFilterNet3
-2025-09-14 10:47:08 | INFO     | DF | Running with post-filter (beta: 0.02)
-2025-09-14 10:47:08 | INFO     | DF | Initializing model `deepfilternet3`
-2025-09-14 10:47:08 | INFO     | DF | Found checkpoint /home/user01/.cache/DeepFilterNet/DeepFilterNet3/checkpoints/model_120.ckpt.best with epoch 120
-2025-09-14 10:47:08 | INFO     | DF | Running on device cuda:0
-2025-09-14 10:47:08 | INFO     | DF | Model loaded
-Enhancing:   0%|          | 0/1 [00:00<?, ?file/s]/home/user01/deepfilternet/deepfilternet_venv/lib/python3.10/site-packages/torchaudio/_backend/utils.py:213: UserWarning: In 2.9, this function's implementation will be changed to use torchaudio.load_with_torchcodec` under the hood. Some parameters like ``normalize``, ``format``, ``buffer_size``, and ``backend`` will be ignored. We recommend that you port your code to rely directly on TorchCodec's decoder instead: https://docs.pytorch.org/torchcodec/stable/generated/torchcodec.decoders.AudioDecoder.html#torchcodec.decoders.AudioDecoder.
-  warnings.warn(
-/home/user01/deepfilternet/deepfilternet_venv/lib/python3.10/site-packages/torchaudio/_backend/ffmpeg.py:88: UserWarning: torio.io._streaming_media_decoder.StreamingMediaDecoder has been deprecated. This deprecation is part of a large refactoring effort to transition TorchAudio into a maintenance phase. The decoding and encoding capabilities of PyTorch for both audio and video are being consolidated into TorchCodec. Please see https://github.com/pytorch/audio/issues/3902 for more information. It will be removed from the 2.9 release. 
-  s = torchaudio.io.StreamReader(src, format, None, buffer_size)
-/home/user01/deepfilternet/deepfilternet_venv/lib/python3.10/site-packages/torchaudio/_backend/utils.py:337: UserWarning: In 2.9, this function's implementation will be changed to use torchaudio.save_with_torchcodec` under the hood. Some parameters like format, encoding, bits_per_sample, buffer_size, and ``backend`` will be ignored. We recommend that you port your code to rely directly on TorchCodec's encoder instead: https://docs.pytorch.org/torchcodec/stable/generated/torchcodec.encoders.AudioEncoder
-  warnings.warn(
-/home/user01/deepfilternet/deepfilternet_venv/lib/python3.10/site-packages/torchaudio/_backend/ffmpeg.py:247: UserWarning: torio.io._streaming_media_encoder.StreamingMediaEncoder has been deprecated. This deprecation is part of a large refactoring effort to transition TorchAudio into a maintenance phase. The decoding and encoding capabilities of PyTorch for both audio and video are being consolidated into TorchCodec. Please see https://github.com/pytorch/audio/issues/3902 for more information. It will be removed from the 2.9 release. 
-  s = torchaudio.io.StreamWriter(uri, format=muxer, buffer_size=buffer_size)
-Enhancing: 100%|██████████| 1/1 [00:01<00:00,  1.82s/file]Enhancing: 100%|██████████| 1/1 [00:01<00:00,  1.82s/file]
-[2025-09-14 10:47:10] Job 4: faster-whisper
-Found 1 file(s). Whisper model=medium | device=cuda | compute=float16 | beam=5
-Processing:   0%|          | 0/1 [00:00<?, ?it/s]Processing: 100%|██████████| 1/1 [00:04<00:00,  4.24s/it]Processing: 100%|██████████| 1/1 [00:04<00:00,  4.24s/it]
-
-OK: /home/user01/my-fastapi-voice/app/outputs/4/clear-voice/enhanced48k_4.wav
-  Detected: fa (p≈0.97)
-  -> /home/user01/my-fastapi-voice/app/outputs/4/faster-whisper/enhanced48k_4.en.txt
-  -> /home/user01/my-fastapi-voice/app/outputs/4/faster-whisper/enhanced48k_4.fa.txt
-Done.
-Found 1 file(s). Whisper model=medium | device=cuda | compute=float16 | beam=5
-Processing:   0%|          | 0/1 [00:00<?, ?it/s]Processing: 100%|██████████| 1/1 [00:04<00:00,  4.08s/it]Processing: 100%|██████████| 1/1 [00:04<00:00,  4.08s/it]
-
-OK: /home/user01/my-fastapi-voice/app/outputs/4/facebook-denoiser/4_denoised.wav
-  Detected: fa (p≈0.98)
-  -> /home/user01/my-fastapi-voice/app/outputs/4/faster-whisper/4_denoised.en.txt
-  -> /home/user01/my-fastapi-voice/app/outputs/4/faster-whisper/4_denoised.fa.txt
-Done.
-Found 1 file(s). Whisper model=medium | device=cuda | compute=float16 | beam=5
-Processing:   0%|          | 0/1 [00:00<?, ?it/s]Processing: 100%|██████████| 1/1 [00:04<00:00,  4.46s/it]Processing: 100%|██████████| 1/1 [00:04<00:00,  4.46s/it]
-
-OK: /home/user01/my-fastapi-voice/app/outputs/4/deepfilternet/4_df.wav
-  Detected: fa (p≈0.98)
-  -> /home/user01/my-fastapi-voice/app/outputs/4/faster-whisper/4_df.en.txt
-  -> /home/user01/my-fastapi-voice/app/outputs/4/faster-whisper/4_df.fa.txt
-Done.
-[2025-09-14 10:47:40] Job 5: facebook-seamless
-Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 21183.35it/s]
-Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 24966.10it/s]
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  2.69it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.81it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.79it/s]
-/home/user01/facebook-seamless/facebook-seamless/lib/python3.10/site-packages/torchaudio/_backend/utils.py:213: UserWarning: In 2.9, this function's implementation will be changed to use torchaudio.load_with_torchcodec` under the hood. Some parameters like ``normalize``, ``format``, ``buffer_size``, and ``backend`` will be ignored. We recommend that you port your code to rely directly on TorchCodec's decoder instead: https://docs.pytorch.org/torchcodec/stable/generated/torchcodec.decoders.AudioDecoder.html#torchcodec.decoders.AudioDecoder.
-  warnings.warn(
-/home/user01/facebook-seamless/facebook-seamless/lib/python3.10/site-packages/torchaudio/_backend/ffmpeg.py:88: UserWarning: torio.io._streaming_media_decoder.StreamingMediaDecoder has been deprecated. This deprecation is part of a large refactoring effort to transition TorchAudio into a maintenance phase. The decoding and encoding capabilities of PyTorch for both audio and video are being consolidated into TorchCodec. Please see https://github.com/pytorch/audio/issues/3902 for more information. It will be removed from the 2.9 release. 
-  s = torchaudio.io.StreamReader(src, format, None, buffer_size)
-Model downloaded and cached.
-/home/user01/my-fastapi-voice/app/outputs/4/clear-voice
-Processed /home/user01/my-fastapi-voice/app/outputs/4/clear-voice/enhanced48k_4.wav -> Persian: /home/user01/my-fastapi-voice/app/outputs/4/facebook-seamless/enhanced48k_4_pes.txt, English: /home/user01/my-fastapi-voice/app/outputs/4/facebook-seamless/enhanced48k_4_eng.txt
-Download them manually from your server (e.g., via SCP).
-Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 23967.45it/s]
-Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 25266.89it/s]
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  3.69it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  3.30it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  3.36it/s]
-/home/user01/facebook-seamless/facebook-seamless/lib/python3.10/site-packages/torchaudio/_backend/utils.py:213: UserWarning: In 2.9, this function's implementation will be changed to use torchaudio.load_with_torchcodec` under the hood. Some parameters like ``normalize``, ``format``, ``buffer_size``, and ``backend`` will be ignored. We recommend that you port your code to rely directly on TorchCodec's decoder instead: https://docs.pytorch.org/torchcodec/stable/generated/torchcodec.decoders.AudioDecoder.html#torchcodec.decoders.AudioDecoder.
-  warnings.warn(
-/home/user01/facebook-seamless/facebook-seamless/lib/python3.10/site-packages/torchaudio/_backend/ffmpeg.py:88: UserWarning: torio.io._streaming_media_decoder.StreamingMediaDecoder has been deprecated. This deprecation is part of a large refactoring effort to transition TorchAudio into a maintenance phase. The decoding and encoding capabilities of PyTorch for both audio and video are being consolidated into TorchCodec. Please see https://github.com/pytorch/audio/issues/3902 for more information. It will be removed from the 2.9 release. 
-  s = torchaudio.io.StreamReader(src, format, None, buffer_size)
-Model downloaded and cached.
-/home/user01/my-fastapi-voice/app/outputs/4/facebook-denoiser
-Processed /home/user01/my-fastapi-voice/app/outputs/4/facebook-denoiser/4_denoised.wav -> Persian: /home/user01/my-fastapi-voice/app/outputs/4/facebook-seamless/4_denoised_pes.txt, English: /home/user01/my-fastapi-voice/app/outputs/4/facebook-seamless/4_denoised_eng.txt
-Download them manually from your server (e.g., via SCP).
-Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 23967.45it/s]
-Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 5197.40it/s]
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  3.81it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  3.25it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  3.32it/s]
-/home/user01/facebook-seamless/facebook-seamless/lib/python3.10/site-packages/torchaudio/_backend/utils.py:213: UserWarning: In 2.9, this function's implementation will be changed to use torchaudio.load_with_torchcodec` under the hood. Some parameters like ``normalize``, ``format``, ``buffer_size``, and ``backend`` will be ignored. We recommend that you port your code to rely directly on TorchCodec's decoder instead: https://docs.pytorch.org/torchcodec/stable/generated/torchcodec.decoders.AudioDecoder.html#torchcodec.decoders.AudioDecoder.
-  warnings.warn(
-/home/user01/facebook-seamless/facebook-seamless/lib/python3.10/site-packages/torchaudio/_backend/ffmpeg.py:88: UserWarning: torio.io._streaming_media_decoder.StreamingMediaDecoder has been deprecated. This deprecation is part of a large refactoring effort to transition TorchAudio into a maintenance phase. The decoding and encoding capabilities of PyTorch for both audio and video are being consolidated into TorchCodec. Please see https://github.com/pytorch/audio/issues/3902 for more information. It will be removed from the 2.9 release. 
-  s = torchaudio.io.StreamReader(src, format, None, buffer_size)
-Model downloaded and cached.
-/home/user01/my-fastapi-voice/app/outputs/4/deepfilternet
-Processed /home/user01/my-fastapi-voice/app/outputs/4/deepfilternet/4_df.wav -> Persian: /home/user01/my-fastapi-voice/app/outputs/4/facebook-seamless/4_df_pes.txt, English: /home/user01/my-fastapi-voice/app/outputs/4/facebook-seamless/4_df_eng.txt
-Download them manually from your server (e.g., via SCP).
-[2025-09-14 10:48:53] Collecting *.txt results into /home/user01/my-fastapi-voice/app/outputs/4/texts
-[2025-09-14 10:48:53] Job 6: ollama transcript merge (model: alibayram/medgemma:27b)
-===== PROMPT START =====
-SYSTEM / INSTRUCTIONS (English & Persian):
-
-Goal: Produce a single unified transcript (mixed Persian–English).
-- Keep ALL medical terms in ENGLISH (Latin script): drug names, diseases, procedures, anatomy, lab markers, syndromes, genes, imaging terms, units (mg, mL, bpm), and abbreviations (e.g., MI, AF, ALT, AST, INR, CT, MRI).
-- Do NOT add new information. Do NOT invent, hallucinate, or generalize beyond the provided documents. Only merge and lightly normalize grammar/punctuation.
-- Preserve all facts. If two sources conflict and the conflict cannot be reconciled without adding information, do inference based on the context and choose the best one.
-- Maintain the same overall informational density. Target total length between 3971 and 4854 characters (aim ≈ 4413 characters).
-- Write primarily in Persian for general narrative text, but ALWAYS keep medical terms in English (Latin script) inside the Persian sentences.
-- Preserve numeric values, dates, doses, and units exactly; do not round or convert.
-- Keep paragraphing clean and readable. No headings, no metadata, no markdown fences in the final output.
-- Output ONLY the final merged transcript text. No preface, no explanation.
-
-هدف: یک متن واحد (ترکیبی فارسی–انگلیسی) تولید کن.
-- تمام اصطلاحات پزشکی را به انگلیسی با حروف لاتین نگه دار (نام داروها، بیماری‌ها، پروسیجرها، اندام‌ها، آزمایش‌ها، اختصارات و واحدها).
-- هیچ اطلاعات جدیدی اضافه نکن. فقط ترکیب/بازنویسی محدود برای روانی متن.
-- اگر منابع اختلاف دارند و حل اختلاف باعث افزودن اطلاعات جدید می‌شود، خودت استنتاج کن و با توجه به من بهترین نتیجه را گزارش کن.
-- طول متن خروجی تقریباً برابر با مجموع متون ورودی باشد (بین 3971 تا 4854 کاراکتر؛ هدف ≈ 4413).
-- اعداد/دوز/واحدها را دقیق و بدون تغییر نگه دار.
-- فقط متن نهایی را خروجی بده؛ بدون مقدمه یا توضیح.
-
-You are given 12 transcript document(s) below. Combine them under the above rules:
-
-### Document 1: facebook-seamless__4_denoised_eng.txt
-```
-English Translation:
-The patient, a 20-year-old man, came in with a rash and a bad smell. He had a fever. He had a spike in the left and right ventricles. He had a spike in the left ventricle. He had a spike in the right ventricle. He had a spike in the left ventricle.
-
-```
-
-### Document 2: facebook-seamless__4_denoised_pes.txt
-```
-Persian Transcription:
-با حمله بوقال و آگاهي به بوی سوخت که به اتوماتیزم دهانی رسید، ج.س.س. پونزده و بی.پی. صد و هشتاد و دو بود و تب نداشت. وی.جی. اسپایک میزومدیال تمپورال چپ و اماری تریتی نشانه های میدیال تمپورال استولوسیس را همون سمت نشون داد. آی.بی.لو راستم را زدیم و بعد لیوی تراستام شروع کردیم. سطح دارو بیست میکروگرم بر میلی لیتر شد.
-
-```
-
-### Document 3: facebook-seamless__4_df_eng.txt
-```
-English Translation:
-The patient, a twenty-nine-year-old man, came in with a burning sensation that reached the mouth automatically.
-
-```
-
-### Document 4: facebook-seamless__4_df_pes.txt
-```
-Persian Transcription:
-با حمله فوکال و بوی سوخت که به اتوماتیک دهانی رسید آمد جی سی اس پانزده و بی پی صد و هجده و هفتاد و دو بود و تب نبود وی ای جی اسپایک میزومدیال تمپورال چپ و اماری توییتی نشانه های میدیال تمپورال اسپلوسیس را همون سمت نشون داد آی بی ال و راست پا را زدیم و بعد لیوی تراستام یک گرام بی آی دی شروع کردیم سطح دارو بیست میکروگرم بر میلی لیتر شد و الکتروئید نورمال ماند
-
-```
-
-### Document 5: facebook-seamless__enhanced48k_4_eng.txt
-```
-English Translation:
-The patient, a twenty-nine-year-old man, came in with a burning sensation in his mouth. He had a fever on the left side of his chest. He had a fever on the left side of his chest. He had a fever on the left side of his chest. He had a fever on the left side of his chest.
-
-```
-
-### Document 6: facebook-seamless__enhanced48k_4_pes.txt
-```
-Persian Transcription:
-با حمله هوکال با بوی سوخت که به اتوماتیزم دهانی رسید، آمد.
-
-```
-
-### Document 7: faster-whisper__4_denoised.en.txt
-```
-The patient was 29 years old, with a heart attack and a burning fever that came to a fatal automatism.
-His body was 15 and his BP was 118 over 72 and he was not burned.
-The EG-spike of the mesomedial temporal nerve and the MRI-treaty showed many signs of temporal sclerosis on the same side.
-We gave him 4mg of IV lorascone and 1g of levitriacetam.
-We started with 20mg per millilitre of medicine and 2 normal electrolytes.
-The EG-spike of the mesomedial temporal nerve and the MRI-treaty showed many signs of temporal sclerosis on the same side.
-
-```
-
-### Document 8: faster-whisper__4_denoised.fa.txt
-```
-بیمار آقای 29 ساله و حمله خوکال و آقای گلی سوخ که به اوتماتی اسم دهانی رسید اومد
-GCS 15 و BP 118 رو 72 بود و تب نباشد
-EEG اسپایک میزومیدیال تنبرال چف و ایمارای تریتی نشانه های میزیال تنبرال اسپرولوسیس را همون سمت نشوند
-آیبیل و راستام 4 میلی گرام زدیم و بعد
-لیوی تری ستام 1 گرام بی آیدی شروع کردیم
-ست دارو 20 میکرو گرام بر میلی لیت شدند و الیکترولیتا نومال مون
-پلن EEG 24 ساته امشاد
-هموزش مهارکای تشنو امشاد برای لیزر ابلیشن در صورت اود
-
-```
-
-### Document 9: faster-whisper__4_df.en.txt
-```
-The patient, Mr. 29 years old, with a vocal attack and a stomach ulcer, which came to a fatal automatism,
-had a body size of 15 and a BP of 118 over 72 and did not burn.
-I also showed EG, a spike in the medial temporal lobe and tritical hemorrhage,
-signs of medial temporal sclerosis.
-We added 4 mg of IV lorascam and then 1 gram of levitriacetam.
-We started with 20 micrograms per milliliter.
-Our electrolyte remained normal.
-The plan is VEG 24 hours a night.
-The training of Tashanno materials is here for laser ablation in the case of Oud.
-
-```
-
-### Document 10: faster-whisper__4_df.fa.txt
-```
-بیمار اخای 20 نقصاله با حمله فوکال با آورای گوی سوب که به اوطرمایتی اسم دهانی رسید اومد
-جسدیس 15 و بیپی 118 روی 72 بود و تب نبشت
-ایجی اسپایک میزومیدیال تنپرال چب و ایمارای تویتی نشانه های میزیال تنپرال اسپلوسیس رو همون سمت نشوندن
-آیویل و راسپام 4 میلی گرام زدین و بعد لیوی تری ستم 1 گرام بی آیدی
-شروع کردیم ست دارو 20 میکرو گرام بر میلی لیت شدن دویلک تویلیتا نورمال مون
-پلن وی ای جی 24 ساته امشه
-همونزش مانرکای تشنو اینجا برای لیزر ابلیشن در صورت اوط
-
-```
-
-### Document 11: faster-whisper__enhanced48k_4.en.txt
-```
-The patient was 29 years old, with a vocal attack, with a smell of smoke that came to the Automatic name of Dhani.
-His gcs was 15 and his BP was 118.72 and he did not have a fever.
-I also showed EG SPIKE MEZOMEDIAL TEMPORAL CHEF and MRI TREATY MEZOMEDIAL TEMPORAL ESTRULOSIS.
-I gave IV LORASCOM 4mg and then I gave 1g BID LEVYTRASETAM.
-We started and it became 20mg per milliliter.
-Our electrolyte remained normal.
-Plan is MEG 24 hours tonight.
-The training of Tashanno molecules is here for laser ablation in the case of Oud.
-
-```
-
-### Document 12: faster-whisper__enhanced48k_4.fa.txt
-```
-بیمار اخای 20 نمت ساله با حمله بوکال با آورای بوی سوخ که به اوترمایتی اسم دهانی رسید اومد
-GCS 15 و BP 118 روی 72 بود و تب نداشد
-EEG اسپایک میزومیدیال تنبرال چب و ایمارای تریتی نشانه های میزومیدیال تنبرال استرولسیس را همون سمت نشوند
-4 میلی گرم زدیم و بعد 1 گرم BID شروع کردیم
-20 میکرو گرم بر میلی لیت شد
-دو الیکترولیتا نورمال موند
-پلن EEG 24 ساعت امشاد
-هموزش معارکه تشنو اینجا برای laser ablation در صورت اوت
-
-```
-
-
-===== PROMPT END =====
-بیمار آقای 29 ساله با حمله فوکال با بوی سوخت که به اتوماتیزم دهانی رسید آمد. GCS 15 و BP 118 روی 72 بود و تب نداشت. EEG اسپایک میزومدیال تمپورال چپ و اماری توییتی نشانه های میزیال تمپورال اسپلوسیس را همون سمت نشون داد. آی.بی.لو راستم را زدیم و بعد لیوی تراستام 1 گرام بی آیدی شروع کردیم. سطح دارو 20 میکروگرم بر میلی لیتر شد و الکترولیت ها نورمال موند. پلن EEG 24 ساعته امشب. آموزش مهارکای تشنو اینجا برای لیزر ابلیشن در صورت اوت.
-
-بیمار آقای 29 ساله با حمله فوکال با بوی سوخت که به اتوماتیزم دهانی رسید آمد. GCS 15 و BP 118 روی 72 بود و تب نداشت. EEG اسپایک میزومدیال تمپورال چپ و اماری توییتی نشانه های میزیال تمپورال اسپلوسیس را همون سمت نشون داد. آی.بی.لو راستم را زدیم و بعد لیوی تراستام 1 گرام بی آیدی شروع کردیم. سطح دارو 20 میکروگرم بر میلی لیتر شد و الکترولیت ها نورمال موند. پلن EEG 24 ساعته امشب. آموزش مهارکای تشنو اینجا برای لیزر ابلیشن در صورت اوت.
-
-بیمار آقای 29 ساله با حمله فوکال با بوی سوخت که به اتوماتیزم دهانی رسید آمد. GCS 15 و BP 118 روی 72 بود و تب نداشت. EEG اسپایک میزومدیال تمپورال چپ و اماری توییتی نشانه های میزیال تمپورال اسپلوسیس را همون سمت نشون داد. آی.بی.لو راستم را زدیم و بعد لیوی تراستام 1 گرام بی آیدی شروع کردیم. سطح دارو 20 میکروگرم بر میلی لیتر شد و الکترولیت ها نورمال موند. پلن EEG 24 ساعته امشب. آموزش مهارکای تشنو اینجا برای لیزر ابلیشن در صورت اوت.
-
-بیمار آقای 29 ساله با حمله فوکال با بوی سوخت که به اتوماتیزم دهانی رسید آمد. GCS 15 و BP 118 روی 72 بود و تب نداشت. EEG اسپایک میزومدیال تمپورال چپ و اماری توییتی نشانه های میزیال تمپورال اسپلوسیس را همون سمت نشون داد. آی.بی.لو راستم را زدیم و بعد لیوی تراستام 1 گرام بی آیدی شروع کردیم. سطح دارو 20 میکروگرم بر میلی لیتر شد و الکترولیت ها نورمال موند. پلن EEG 24 ساعته امشب. آموزش مهارکای تشنو اینجا برای لیزر ابلیشن در صورت اوت.
-
-بیمار آقای 29 ساله با حمله فوکال با بوی سوخت که به اتوماتیزم دهانی رسید آمد. GCS 15 و BP 118 روی 72 بود و تب نداشت. EEG اسپایک میزومدیال تمپورال چپ و اماری توییتی نشانه های میزیال تمپورال اسپلوسیس را همون سمت نشون داد. آی.بی.لو راستم را زدیم و بعد لیوی تراستام 1 گرام بی آیدی شروع کردیم. سطح دارو 20 میکروگرم بر میلی لیتر شد و الکترولیت ها نورمال موند. پلن EEG 24 ساعته امشب. آموزش مهارکای تشنو اینجا برای لیزر ابلیشن در صورت اوت.
-
-بیمار آقای 29 ساله با حمله فوکال با بوی سوخت که به اتوماتیزم دهانی رسید آمد. GCS 15 و BP 118 روی 72 بود و تب نداشت. EEG اسپایک میزومدیال تمپورال چپ و اماری توییتی نشانه های میزیال تمپورال اسپلوسیس را همون سمت نشون داد. آی.بی.لو راستم را زدیم و بعد لیوی تراستام 1 گرام بی آیدی شروع کردیم. سطح دارو 20 میکروگرم بر میلی لیتر شد و الکترولیت ها نورمال موند. پلن EEG 24 ساعته امشب. آموزش مهارکای تشنو اینجا برای لیزر ابلیشن در صورت اوت.
-
-بیمار آقای 29 ساله با حمله فوکال با بوی سوخت که به اتوماتیزم دهانی رسید آمد. GCS 15 و BP 118 روی 72 بود و تب نداشت. EEG اسپایک میزومدیال تمپورال چپ و اماری توییتی نشانه های میزیال تمپورال اسپلوسیس را همون سمت نشون داد. آی.بی.لو راستم را زدیم و بعد لیوی تراستام 1 گرام بی آیدی شروع کردیم. سطح دارو 20 میکروگرم بر میلی لیتر شد و الکترولیت ها نورمال موند. پلن EEG 24 ساعته امشب. آموزش مهارکای تشنو اینجا برای لیزر ابلیشن در صورت اوت.
-
-بیمار آقای 29 ساله با حمله فوکال با بوی سوخت که به اتوماتیزم دهانی رسید آمد. GCS 15 و BP 118 روی 72 بود و تب نداشت. EEG اسپایک میزومدیال تمپورال چپ و اماری توییتی نشانه های میزیال تمپورال اسپلوسیس را همون سمت نشون داد. آی.بی.لو راستم را زدیم و بعد لیوی تراستام 1 گرام بی آیدی شروع کردیم. سطح دارو 20 میکروگرم بر میلی لیتر شد و الکترولیت ها نورمال موند. پلن EEG 24 ساعته امشب. آموزش مهارکای تشنو اینجا برای لیزر ابلیشن در صورت اوت.
-
-بیمار آقای 29 ساله با حمله فوکال با بوی سوخت که به اتوماتیزم دهانی رسید آمد. GCS 15 و BP 118 روی 72 بود و تب نداشت. EEG اسپایک میزومدیال تمپورال چپ و اماری توییتی نشانه های میزیال تمپورال اسپلوسیس را همون سمت نشون داد. آی.بی.لو راستم را زدیم و بعد لیوی تراستام 1 گرام بی آیدی شروع کردیم. سطح دارو 20 میکروگرم بر میلی لیتر شد و الکترولیت ها نورمال موند. پلن EEG 24 ساعته امشب. آموزش مهارکای تشنو اینجا برای لیزر ابلیشن در صورت اوت.
-
-بیمار آقای 29 ساله با حمله فوکال با بوی سوخت که به اتوماتیزم دهانی رسید آمد. GCS 15 و BP 118 روی 72 بود و تب نداشت. EEG اسپایک میزومدیال تمپورال چپ و اماری توییتی نشانه های میزیال تمپورال اسپلوسیس را همون سمت نشون داد. آی.بی.لو راستم را زدیم و بعد لیوی تراستام 1 گرام بی آیدی شروع کردیم. سطح دارو 20 میکروگرم بر میلی لیتر شد و الکترولیت ها نورمال موند. پلن EEG 24 ساعته امشب. آموزش مهارکای تشنو اینجا برای لیزر ابلیشن در صورت اوت.
-
-بیمار آقای 29 ساله با حمله فوکال با بوی سوخت که به اتوماتیزم دهانی رسید آمد. GCS 15 و BP 118 روی 72 بود و تب نداشت. EEG اسپایک میزومدیال تمپورال چپ و اماری توییتی نشانه های میزیال تمپورال اسپلوسیس را همون سمت نشون داد. آی.بی.لو راستم را زدیم و بعد لیوی تراستام 1 گرام بی آیدی شروع کردیم. سطح دارو 20 میکروگرم بر میلی لیتر شد و الکترولیت ها نورمال موند. پلن EEG 24 ساعته امشب. آموزش مهارکای تشنو اینجا برای لیزر ابلیشن در صورت اوت.
-
-بیمار آقای 29 ساله با حمله فوکال با بوی سوخت که به اتوماتیزم دهانی رسید آمد. GCS 15 و BP 118 روی 72 بود و تب نداشت. EEG اسپایک میزومدیال تمپورال چپ و اماری توییتی نشانه های میزیال تمپورال اسپلوسیس را همون سمت نشون داد. آی.بی.لو راستم را زدیم و بعد لیوی تراستام 1 گرام بی آیدی شروع کردیم. سطح دارو 20 میکروگرم بر میلی لیتر شد و الکترولیت ها نورمال موند. پلن EEG 24 ساعته امشب. آموزش مهارکای تشنو اینجا برای لیزر ابلیشن در صورت اوت.
-
-[info] saved output to: merged_output.txt
-[2025-09-14 10:49:55] Merged file created: /home/user01/my-fastapi-voice/app/outputs/4/merged_output.txt
-[2025-09-14 10:49:55] Publishing text files to OUT_DIR root
-[2025-09-14 10:49:55] Top-level TXT files published: 13
-[2025-09-14 10:49:55] Manifest: /home/user01/my-fastapi-voice/app/outputs/4/text_paths.list

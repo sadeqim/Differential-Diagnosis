@@ -1,108 +1,0 @@
-[2025-09-13 13:32:19] Job 1: clear-voice
-Found 1 file(s). Profile=hifi_48k
-Enhancing:   0%|          | 0/1 [00:00<?, ?it/s]Running MossFormer2_SE_48K ...
-
-  0%|          | 0/1 [00:00<?, ?it/s][A
-100%|██████████| 1/1 [00:04<00:00,  4.29s/it][A100%|██████████| 1/1 [00:04<00:00,  4.29s/it]
-Enhancing: 100%|██████████| 1/1 [00:07<00:00,  7.40s/it]Enhancing: 100%|██████████| 1/1 [00:07<00:00,  7.40s/it]
-OK: /home/user01/my-fastapi-voice/app/outputs/1/input/1.webm -> /home/user01/my-fastapi-voice/app/outputs/1/clear-voice/enhanced48k_1.wav
-Done.
-[2025-09-13 13:32:30] Job 2: facebook-denoiser
-INPUT_DIR: /home/user01/my-fastapi-voice/app/outputs/1/input
-OUTPUT_DIR: /home/user01/my-fastapi-voice/app/outputs/1/facebook-denoiser
-Using device: cuda
-Found 1 audio file(s).
-Denoising:   0%|          | 0/1 [00:00<?, ?it/s]/home/user01/facebook-denoiser/facebook-denoiser-venv/lib/python3.10/site-packages/torchaudio/_backend/utils.py:213: UserWarning: In 2.9, this function's implementation will be changed to use torchaudio.load_with_torchcodec` under the hood. Some parameters like ``normalize``, ``format``, ``buffer_size``, and ``backend`` will be ignored. We recommend that you port your code to rely directly on TorchCodec's decoder instead: https://docs.pytorch.org/torchcodec/stable/generated/torchcodec.decoders.AudioDecoder.html#torchcodec.decoders.AudioDecoder.
-  warnings.warn(
-/home/user01/facebook-denoiser/facebook-denoiser-venv/lib/python3.10/site-packages/torchaudio/_backend/ffmpeg.py:88: UserWarning: torio.io._streaming_media_decoder.StreamingMediaDecoder has been deprecated. This deprecation is part of a large refactoring effort to transition TorchAudio into a maintenance phase. The decoding and encoding capabilities of PyTorch for both audio and video are being consolidated into TorchCodec. Please see https://github.com/pytorch/audio/issues/3902 for more information. It will be removed from the 2.9 release. 
-  s = torchaudio.io.StreamReader(src, format, None, buffer_size)
-Denoising: 100%|██████████| 1/1 [00:00<00:00,  1.23it/s]Denoising: 100%|██████████| 1/1 [00:00<00:00,  1.23it/s]
-
-All files processed successfully 🎉
-Outputs saved under: /home/user01/my-fastapi-voice/app/outputs/1/facebook-denoiser
-Zipped /home/user01/my-fastapi-voice/app/outputs/1/facebook-denoiser as /home/user01/my-fastapi-voice/app/outputs/1/processed_FacebookResearch_Denoiser.zip
-You can download the zip manually from the server (e.g., via SCP).
-[2025-09-13 13:32:33] Job 3: deepfilternet
-/home/user01/deepfilternet/deepfilternet_venv/lib/python3.10/site-packages/df/io.py:9: UserWarning: `torchaudio.backend.common.AudioMetaData` has been moved to `torchaudio.AudioMetaData`. Please update the import path.
-  from torchaudio.backend.common import AudioMetaData
-2025-09-13 13:32:35 | INFO     | DF | Running on torch 2.8.0+cu128
-2025-09-13 13:32:35 | INFO     | DF | Running on host user01
-fatal: not a git repository (or any of the parent directories): .git
-2025-09-13 13:32:35 | INFO     | DF | Loading model settings of DeepFilterNet3
-2025-09-13 13:32:35 | INFO     | DF | Using DeepFilterNet3 model at /home/user01/.cache/DeepFilterNet/DeepFilterNet3
-2025-09-13 13:32:35 | INFO     | DF | Running with post-filter (beta: 0.02)
-2025-09-13 13:32:35 | INFO     | DF | Initializing model `deepfilternet3`
-2025-09-13 13:32:36 | INFO     | DF | Found checkpoint /home/user01/.cache/DeepFilterNet/DeepFilterNet3/checkpoints/model_120.ckpt.best with epoch 120
-2025-09-13 13:32:36 | INFO     | DF | Running on device cuda:0
-2025-09-13 13:32:36 | INFO     | DF | Model loaded
-Enhancing:   0%|          | 0/1 [00:00<?, ?file/s]/home/user01/deepfilternet/deepfilternet_venv/lib/python3.10/site-packages/torchaudio/_backend/utils.py:213: UserWarning: In 2.9, this function's implementation will be changed to use torchaudio.load_with_torchcodec` under the hood. Some parameters like ``normalize``, ``format``, ``buffer_size``, and ``backend`` will be ignored. We recommend that you port your code to rely directly on TorchCodec's decoder instead: https://docs.pytorch.org/torchcodec/stable/generated/torchcodec.decoders.AudioDecoder.html#torchcodec.decoders.AudioDecoder.
-  warnings.warn(
-/home/user01/deepfilternet/deepfilternet_venv/lib/python3.10/site-packages/torchaudio/_backend/ffmpeg.py:88: UserWarning: torio.io._streaming_media_decoder.StreamingMediaDecoder has been deprecated. This deprecation is part of a large refactoring effort to transition TorchAudio into a maintenance phase. The decoding and encoding capabilities of PyTorch for both audio and video are being consolidated into TorchCodec. Please see https://github.com/pytorch/audio/issues/3902 for more information. It will be removed from the 2.9 release. 
-  s = torchaudio.io.StreamReader(src, format, None, buffer_size)
-/home/user01/deepfilternet/deepfilternet_venv/lib/python3.10/site-packages/torchaudio/_backend/utils.py:337: UserWarning: In 2.9, this function's implementation will be changed to use torchaudio.save_with_torchcodec` under the hood. Some parameters like format, encoding, bits_per_sample, buffer_size, and ``backend`` will be ignored. We recommend that you port your code to rely directly on TorchCodec's encoder instead: https://docs.pytorch.org/torchcodec/stable/generated/torchcodec.encoders.AudioEncoder
-  warnings.warn(
-/home/user01/deepfilternet/deepfilternet_venv/lib/python3.10/site-packages/torchaudio/_backend/ffmpeg.py:247: UserWarning: torio.io._streaming_media_encoder.StreamingMediaEncoder has been deprecated. This deprecation is part of a large refactoring effort to transition TorchAudio into a maintenance phase. The decoding and encoding capabilities of PyTorch for both audio and video are being consolidated into TorchCodec. Please see https://github.com/pytorch/audio/issues/3902 for more information. It will be removed from the 2.9 release. 
-  s = torchaudio.io.StreamWriter(uri, format=muxer, buffer_size=buffer_size)
-Enhancing: 100%|██████████| 1/1 [00:02<00:00,  2.31s/file]Enhancing: 100%|██████████| 1/1 [00:02<00:00,  2.31s/file]
-[2025-09-13 13:32:39] Job 4: faster-whisper (transcribe outputs from the 3 previous jobs)
-Found 1 file(s). Whisper model=medium | device=cuda | compute=float16 | beam=5
-Processing:   0%|          | 0/1 [00:00<?, ?it/s]Processing: 100%|██████████| 1/1 [00:02<00:00,  2.38s/it]Processing: 100%|██████████| 1/1 [00:02<00:00,  2.38s/it]
-
-OK: /home/user01/my-fastapi-voice/app/outputs/1/clear-voice/enhanced48k_1.wav
-  Detected: fa (p≈0.78)
-  -> /home/user01/my-fastapi-voice/app/outputs/1/faster-whisper/enhanced48k_1.en.txt
-  -> /home/user01/my-fastapi-voice/app/outputs/1/faster-whisper/enhanced48k_1.fa.txt
-Done.
-Found 1 file(s). Whisper model=medium | device=cuda | compute=float16 | beam=5
-Processing:   0%|          | 0/1 [00:00<?, ?it/s]Processing: 100%|██████████| 1/1 [00:01<00:00,  1.94s/it]Processing: 100%|██████████| 1/1 [00:01<00:00,  1.94s/it]
-
-OK: /home/user01/my-fastapi-voice/app/outputs/1/facebook-denoiser/1_denoised.wav
-  Detected: fa (p≈0.81)
-  -> /home/user01/my-fastapi-voice/app/outputs/1/faster-whisper/1_denoised.en.txt
-  -> /home/user01/my-fastapi-voice/app/outputs/1/faster-whisper/1_denoised.fa.txt
-Done.
-Found 1 file(s). Whisper model=medium | device=cuda | compute=float16 | beam=5
-Processing:   0%|          | 0/1 [00:00<?, ?it/s]Processing: 100%|██████████| 1/1 [00:02<00:00,  2.02s/it]Processing: 100%|██████████| 1/1 [00:02<00:00,  2.02s/it]
-
-OK: /home/user01/my-fastapi-voice/app/outputs/1/deepfilternet/1_df.wav
-  Detected: fa (p≈0.78)
-  -> /home/user01/my-fastapi-voice/app/outputs/1/faster-whisper/1_df.en.txt
-  -> /home/user01/my-fastapi-voice/app/outputs/1/faster-whisper/1_df.fa.txt
-Done.
-[2025-09-13 13:33:03] Job 5: facebook-seamless
-Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 23967.45it/s]
-Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 25266.89it/s]
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  1.86it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.58it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.61it/s]
-/home/user01/facebook-seamless/facebook-seamless/lib/python3.10/site-packages/torchaudio/_backend/utils.py:213: UserWarning: In 2.9, this function's implementation will be changed to use torchaudio.load_with_torchcodec` under the hood. Some parameters like ``normalize``, ``format``, ``buffer_size``, and ``backend`` will be ignored. We recommend that you port your code to rely directly on TorchCodec's decoder instead: https://docs.pytorch.org/torchcodec/stable/generated/torchcodec.decoders.AudioDecoder.html#torchcodec.decoders.AudioDecoder.
-  warnings.warn(
-/home/user01/facebook-seamless/facebook-seamless/lib/python3.10/site-packages/torchaudio/_backend/ffmpeg.py:88: UserWarning: torio.io._streaming_media_decoder.StreamingMediaDecoder has been deprecated. This deprecation is part of a large refactoring effort to transition TorchAudio into a maintenance phase. The decoding and encoding capabilities of PyTorch for both audio and video are being consolidated into TorchCodec. Please see https://github.com/pytorch/audio/issues/3902 for more information. It will be removed from the 2.9 release. 
-  s = torchaudio.io.StreamReader(src, format, None, buffer_size)
-Model downloaded and cached.
-/home/user01/my-fastapi-voice/app/outputs/1/clear-voice
-Processed /home/user01/my-fastapi-voice/app/outputs/1/clear-voice/enhanced48k_1.wav -> Persian: /home/user01/my-fastapi-voice/app/outputs/1/facebook-seamless/enhanced48k_1_pes.txt, English: /home/user01/my-fastapi-voice/app/outputs/1/facebook-seamless/enhanced48k_1_eng.txt
-Download them manually from your server (e.g., via SCP).
-Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 22310.13it/s]
-Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 24818.37it/s]
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  3.49it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  2.98it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  3.05it/s]
-/home/user01/facebook-seamless/facebook-seamless/lib/python3.10/site-packages/torchaudio/_backend/utils.py:213: UserWarning: In 2.9, this function's implementation will be changed to use torchaudio.load_with_torchcodec` under the hood. Some parameters like ``normalize``, ``format``, ``buffer_size``, and ``backend`` will be ignored. We recommend that you port your code to rely directly on TorchCodec's decoder instead: https://docs.pytorch.org/torchcodec/stable/generated/torchcodec.decoders.AudioDecoder.html#torchcodec.decoders.AudioDecoder.
-  warnings.warn(
-/home/user01/facebook-seamless/facebook-seamless/lib/python3.10/site-packages/torchaudio/_backend/ffmpeg.py:88: UserWarning: torio.io._streaming_media_decoder.StreamingMediaDecoder has been deprecated. This deprecation is part of a large refactoring effort to transition TorchAudio into a maintenance phase. The decoding and encoding capabilities of PyTorch for both audio and video are being consolidated into TorchCodec. Please see https://github.com/pytorch/audio/issues/3902 for more information. It will be removed from the 2.9 release. 
-  s = torchaudio.io.StreamReader(src, format, None, buffer_size)
-Model downloaded and cached.
-/home/user01/my-fastapi-voice/app/outputs/1/facebook-denoiser
-Processed /home/user01/my-fastapi-voice/app/outputs/1/facebook-denoiser/1_denoised.wav -> Persian: /home/user01/my-fastapi-voice/app/outputs/1/facebook-seamless/1_denoised_pes.txt, English: /home/user01/my-fastapi-voice/app/outputs/1/facebook-seamless/1_denoised_eng.txt
-Download them manually from your server (e.g., via SCP).
-Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 24105.20it/s]
-Fetching 1 files:   0%|          | 0/1 [00:00<?, ?it/s]Fetching 1 files: 100%|██████████| 1/1 [00:00<00:00, 25890.77it/s]
-Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  3.66it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  3.12it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  3.19it/s]
-/home/user01/facebook-seamless/facebook-seamless/lib/python3.10/site-packages/torchaudio/_backend/utils.py:213: UserWarning: In 2.9, this function's implementation will be changed to use torchaudio.load_with_torchcodec` under the hood. Some parameters like ``normalize``, ``format``, ``buffer_size``, and ``backend`` will be ignored. We recommend that you port your code to rely directly on TorchCodec's decoder instead: https://docs.pytorch.org/torchcodec/stable/generated/torchcodec.decoders.AudioDecoder.html#torchcodec.decoders.AudioDecoder.
-  warnings.warn(
-/home/user01/facebook-seamless/facebook-seamless/lib/python3.10/site-packages/torchaudio/_backend/ffmpeg.py:88: UserWarning: torio.io._streaming_media_decoder.StreamingMediaDecoder has been deprecated. This deprecation is part of a large refactoring effort to transition TorchAudio into a maintenance phase. The decoding and encoding capabilities of PyTorch for both audio and video are being consolidated into TorchCodec. Please see https://github.com/pytorch/audio/issues/3902 for more information. It will be removed from the 2.9 release. 
-  s = torchaudio.io.StreamReader(src, format, None, buffer_size)
-Model downloaded and cached.
-/home/user01/my-fastapi-voice/app/outputs/1/deepfilternet
-Processed /home/user01/my-fastapi-voice/app/outputs/1/deepfilternet/1_df.wav -> Persian: /home/user01/my-fastapi-voice/app/outputs/1/facebook-seamless/1_df_pes.txt, English: /home/user01/my-fastapi-voice/app/outputs/1/facebook-seamless/1_df_eng.txt
-Download them manually from your server (e.g., via SCP).
-[2025-09-13 13:34:24] Collecting *.txt results into /home/user01/my-fastapi-voice/app/outputs/1/texts
-[2025-09-13 13:34:24] TXT files found: 12
-[2025-09-13 13:34:24] Manifest: /home/user01/my-fastapi-voice/app/outputs/1/text_paths.txt
