@@ -1,0 +1,4 @@
+Hello, I'm going to define the conditions of the voice.
+I wrote the script and I hope it works well.
+I hope I don't have to write it twice.
+That's it.

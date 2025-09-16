@@ -1,0 +1,10 @@
+torch>=2.1
+torchaudio>=2.1
+transformers>=4.41
+accelerate>=0.30
+sentencepiece>=0.1.99
+safetensors>=0.4.3
+
+
+# pip install -U pip setuptools wheel
+# pip install -U "protobuf>=4.25.3,<6" "sentencepiece>=0.1.99"

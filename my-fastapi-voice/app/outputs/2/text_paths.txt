@@ -1,0 +1,12 @@
+/home/user01/my-fastapi-voice/app/outputs/2/texts/facebook-seamless__2_denoised_eng.txt
+/home/user01/my-fastapi-voice/app/outputs/2/texts/facebook-seamless__2_denoised_pes.txt
+/home/user01/my-fastapi-voice/app/outputs/2/texts/facebook-seamless__2_df_eng.txt
+/home/user01/my-fastapi-voice/app/outputs/2/texts/facebook-seamless__2_df_pes.txt
+/home/user01/my-fastapi-voice/app/outputs/2/texts/facebook-seamless__enhanced48k_2_eng.txt
+/home/user01/my-fastapi-voice/app/outputs/2/texts/facebook-seamless__enhanced48k_2_pes.txt
+/home/user01/my-fastapi-voice/app/outputs/2/texts/faster-whisper__2_denoised.en.txt
+/home/user01/my-fastapi-voice/app/outputs/2/texts/faster-whisper__2_denoised.fa.txt
+/home/user01/my-fastapi-voice/app/outputs/2/texts/faster-whisper__2_df.en.txt
+/home/user01/my-fastapi-voice/app/outputs/2/texts/faster-whisper__2_df.fa.txt
+/home/user01/my-fastapi-voice/app/outputs/2/texts/faster-whisper__enhanced48k_2.en.txt
+/home/user01/my-fastapi-voice/app/outputs/2/texts/faster-whisper__enhanced48k_2.fa.txt

@@ -1,0 +1,15 @@
+# ---- Torch CUDA 12.6 wheels ----
+--extra-index-url https://download.pytorch.org/whl/cu126
+
+# Core STT
+faster-whisper>=1.0
+tqdm>=4.66
+
+# For EN<->FA text translation we used (keep these):
+transformers>=4.40
+sentencepiece>=0.1.99
+torch==2.8.0+cu126
+
+# CUDA user-space libs (Linux x86_64) compatible with torch 2.8.0+cu126
+nvidia-cublas-cu12==12.6.4.1; platform_system=="Linux" and platform_machine=="x86_64"
+nvidia-cudnn-cu12==9.10.2.21; platform_system=="Linux" and platform_machine=="x86_64"
