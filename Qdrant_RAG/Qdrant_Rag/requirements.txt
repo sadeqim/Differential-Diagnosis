@@ -1,0 +1,6 @@
+docling
+ollama
+qdrant-client
+rich
+pypdf
+tqdm

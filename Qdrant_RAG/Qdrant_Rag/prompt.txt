@@ -1,0 +1,7 @@
+  Based solely on the retrieved context, list the three most likely differential diagnoses for the following patient. For each diagnosis include: (1) the
+  diagnosis name; (2) the key supporting findings from the case; and (3) any features in the context that argue against it. Present the answer as numbered
+  bullets. Case description:
+
+  A 45-year-old woman with a history of orthopedic surgery on the right lower limb two weeks ago presents to the emergency department. Since this morning, she has developed sudden shortness of breath accompanied by right-sided pleuritic chest pain. She also complains of palpitations and anxiety. She reports no fever and no purulent sputum.
+
+  On examination, she has tachypnea (RR = 28) and tachycardia (HR = 120). Her blood pressure is below normal (100/70 mmHg), and SpO₂ is 88% on room air. Examination of the right lower extremity reveals calf swelling and tenderness. Lung sounds are normal, with no obvious rales or wheezing.

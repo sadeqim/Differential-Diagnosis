@@ -1,0 +1,164 @@
+(kh_rag) user01@user01:~/DD/Qdrant_RAG/Qdrant_Rag$ python rag_test.py "$(cat prompt.txt)"
+❓ User Question:   Based solely on the retrieved context, list the three most likely differential diagnoses for the following patient. For each diagnosis include: (1) the
+  diagnosis name; (2) the key supporting findings from the case; and (3) any features in the context that argue against it. Present the answer as numbered
+  bullets. Case description:
+
+  A 60-year-old man with no history of chronic pulmonary or cardiac disease presents. He has had a fever of 38.5 °C for three days, has developed a cough
+  producing yellow-green sputum, and is experiencing right-sided chest pain, especially with deep inspiration. He also has moderate shortness of breath and
+  complains of fatigue and reduced appetite. He has a 20 pack-year smoking history but quit recently.
+
+  On physical examination, he is mildly short of breath; his overall condition is relatively stable, but he is febrile with an elevated heart rate. Lung
+  auscultation reveals crackles (fine rales) at the base of the right lung and decreased basal breath sounds, without a clear pleural rub. Blood pressure and
+  the other vital signs are normal.
+
+🧠 Embedding the question...
+🔍 Retrieving relevant context from the database...
+/home/user01/DD/Qdrant_RAG/Qdrant_Rag/rag_test.py:40: DeprecationWarning: `search` method is deprecated and will be removed in the future. Use `query_points` instead.
+  search_results = client.search(
+📝 Building the prompt with retrieved context...
+💬 Sending prompt to 'qwen3:30b-a3b-fp16' to generate the final answer...
+
+==================================================
+✅ Generated Answer:
+==================================================
+<think>
+Okay, let's tackle this question. The user wants the three most likely differential diagnoses for a 60-year-old man with specific symptoms. I need to base my answer strictly on the provided context.
+
+First, the patient has a fever, cough with yellow-green sputum, right-sided chest pain, shortness of breath, fatigue, and reduced appetite. He's a former smoker. On exam, there are crackles at the base of the right lung and decreased breath sounds. No pleural rub, and vitals are mostly normal except for fever and elevated heart rate.
+
+Looking at the context, Source 4 mentions that the differential diagnosis for CAP (Community-Acquired Pneumonia) includes infectious and noninfectious entities like acute bronchitis, exacerbations of chronic bronchitis, heart failure, and pulmonary embolism. The patient's symptoms like fever, cough, sputum, and new infiltrate on chest X-ray (though not mentioned here, but the context says a new infiltrate is needed for diagnosis) would point towards pneumonia. However, the context also says that clinical history and exam aren't enough, needing radiographic evidence. But since the case doesn't mention imaging, maybe the answer still considers CAP as a diagnosis. The key findings here are fever, productive cough, chest pain, and crackles. The context in Source 5 talks about CAP presenting with cough, sputum, fever, dyspnea, and a new infiltrate. However, the patient's chest X-ray isn't mentioned, but maybe the crackles and sputum are enough. However, the context says that a definitive diagnosis requires a new opacity on radiography. But since the question is about differential diagnoses, maybe CAP is still a top possibility.
+
+Next, considering the physical findings: crackles and decreased breath sounds. Source 3's table mentions consolidation (pneumonia) has crackles, bronchial breath sounds, etc. But the patient's exam doesn't mention bronchial breath sounds, just crackles. However, the presence of crackles and sputum could also be from bronchitis. Source 4 lists acute bronchitis as a differential. But bronchitis usually doesn't have pleural pain. The patient has right-sided chest pain with deep inspiration, which might suggest pleuritis, which is more common in pneumonia. However, the context in Source 5 mentions that pneumonia can present with pleuritic chest pain. So maybe bronchitis is less likely here because of the chest pain.
+
+Another possibility is pulmonary embolism. Source 4 includes PE in the differential. But the patient's symptoms are more consistent with pneumonia. PE typically presents with sudden onset dyspnea, pleuritic chest pain, and maybe hemoptysis. However, the patient has a fever and productive cough, which are more indicative of infection. The context doesn't mention PE as a top differential here, but it's still a possibility. However, the absence of risk factors like recent surgery or immobility might make PE less likely. The context doesn't have specific info on PE's physical findings, but Source 7 talks about COPD exacerbations, which isn't the case here.
+
+Another differential could be atelectasis. Source 3's table shows atelectasis has decreased breath sounds and dullness, which matches the patient's findings. However, atelectasis is usually due to obstruction, like a tumor or mucus plug. The patient's history of smoking might make this a consideration. But the presence of fever and sputum suggests infection rather than just atelectasis. The context in Source 5 mentions that CAP can have delayed diagnosis in older adults, but the patient is 60, which is older. However, the context also says that pneumonia may present with non-specific symptoms, but here he has fever and sputum.
+
+So the top three differentials would be:
+
+1. Community-Acquired Pneumonia (CAP): Key findings are fever, productive cough, chest pain, crackles. The context in Source 4 and 5 supports this. However, the context says that a new infiltrate is needed for diagnosis, but since the case doesn't mention it, maybe there's an argument against it. But since the question is about differential diagnoses, it's still a possibility.
+
+2. Acute Bronchitis: The context in Source 4 lists it as a differential. However, bronchitis usually doesn't have pleuritic chest pain or crackles. The presence of crackles and chest pain might argue against it.
+
+3. Pulmonary Embolism: Mentioned in Source 4. However, the symptoms are more aligned with infection. The context doesn't have specific info on PE's physical findings, but the absence of typical PE signs (like tachycardia, hypoxia) might argue against it. However, the patient has elevated heart rate, which could be part of PE. But the presence of fever and sputum makes PE less likely.
+
+Wait, but the context in Source 5 mentions that CAP can present with atypical symptoms in older adults, but the patient is 60, which is older. However, the case doesn't mention altered mental status or other atypical features. Also, the presence of yellow-green sputum suggests infection, which is more in line with pneumonia.
+
+Another possibility is pleural effusion, but the context in Source 3's table shows that pleural effusion has decreased breath sounds and dullness, but the patient has crackles. However, the context doesn't mention effusion as a differential here. Also, the absence of pleural rub makes effusion less likely.
+
+So the three most likely are CAP, acute bronchitis, and maybe atelectasis. But the context's Source 3's table for atelectasis mentions decreased breath sounds and shift of trachea, which the patient doesn't have. So maybe not. Alternatively, maybe consolidation (pneumonia) is part of CAP.
+
+Alternatively, considering the patient's smoking history, maybe lung cancer with infection, but that's not in the context. The context mentions Nocardial pneumonia in Source 6, but that's a specific type. However, the case doesn't mention cavities or nodules, which are in Source 6's image.
+
+So, to sum up, the three differentials would be:
+
+1. CAP: Key findings - fever, cough with sputum, chest pain, crackles. The context says CAP requires a new infiltrate, but the case doesn't mention it. However, the question is about differential, so it's still a possibility. Features arguing against: absence of radiographic findings.
+
+2. Acute Bronchitis: Key findings - cough, sputum. But lack of pleuritic pain and crackles might argue against it. However, the context in Source 4 lists it as a differential.
+
+3. Pulmonary Embolism: Key findings - chest pain, dyspnea. But absence of typical PE symptoms like hemoptysis, and presence of fever and sputum argue against it.
+
+Alternatively, maybe Atelectasis? But the context's table for atelectasis mentions decreased breath sounds and shift of trachea, which the patient doesn't have. So maybe not.
+
+Another angle: the context in Source 5 mentions that viral pneumonia can present with severe CAP, but the presence of yellow-green sputum suggests bacterial infection. So CAP is more likely.
+
+So finalizing:
+
+1. Community-Acquired Pneumonia (CAP): Key findings - fever, productive cough, chest pain, crackles. Features arguing against: absence of radiographic evidence (but the question is about differential, not definitive diagnosis).
+
+2. Acute Bronchitis: Key findings - cough, sputum. Features arguing against: presence of chest pain and crackles, which are more indicative of pneumonia.
+
+3. Pulmonary Embolism: Key findings - chest pain, dyspnea. Features arguing against: absence of typical PE signs like hemoptysis, and presence of fever and sputum.
+
+But I need to check the context for any other possibilities. Source 3's table includes bronchial asthma, but the patient's symptoms don't include wheezing. The context in Source 8 talks about asthma, but the patient's presentation is more acute with fever, so asthma exacerbation is less likely.
+
+So the three differentials are CAP, acute bronchitis, and PE. But the context's Source 4 includes PE in the differential. However, the features arguing against PE would be the presence of fever and sputum, which are more infectious.
+
+So the answer would be:
+
+1. CAP: fever, cough, sputum, chest pain, crackles. Argue against: no radiographic findings mentioned.
+
+2. Acute Bronchitis: cough, sputum. Argue against: chest pain and crackles.
+
+3. Pulmonary Embolism: chest pain, dyspnea. Argue against: fever and sputum.
+</think>
+
+- **1. Community-Acquired Pneumonia (CAP)**  
+  - **Key supporting findings**: Fever, productive yellow-green sputum, right-sided pleuritic chest pain, crackles at the right lung base, and moderate dyspnea. The context (Source 4) lists CAP as a primary differential for fever, cough, and sputum, with Source 5 emphasizing that CAP can present with these features.  
+  - **Features arguing against**: The case does not explicitly mention radiographic evidence (e.g., infiltrate) required for definitive diagnosis, though this is a limitation of the clinical scenario rather than the diagnosis itself.  
+
+- **2. Acute Bronchitis**  
+  - **Key supporting findings**: Productive cough with yellow-green sputum and fever. Source 4 includes acute bronchitis in the differential for respiratory infections.  
+  - **Features arguing against**: Bronchitis typically lacks pleuritic chest pain and crackles, which are more indicative of pneumonia (Source 3). The presence of localized crackles and chest pain favors a lower respiratory tract infection over isolated bronchitis.  
+
+- **3. Pulmonary Embolism (PE)**  
+  - **Key supporting findings**: Right-sided pleuritic chest pain and dyspnea. Source 4 lists PE as a differential for acute chest pain and dyspnea.  
+  - **Features arguing against**: PE is less likely given the presence of fever, productive cough, and yellow-green sputum, which are more consistent with infection (Source 5). Additionally, PE often lacks localized crackles, which are present here.  
+
+**Note**: The context emphasizes that CAP requires radiographic confirmation (Source 4), but the question focuses on differential diagnoses, not definitive diagnosis.
+
+==================================================
+📚 Sources Used:
+==================================================
+Source 1 (Page 3449, Section: ):
+presence of hypoxemia. As edema worsens and alveolar flooding occurs, there is further hypoxemia as the blood shunts past nonventilating alveoli. Respiratory acidosis may supervene if the patient is depressed by sedation or if exhaustion develops. The extent to which bronchial mucosal edema intensifies the increase in airway resistance when pulmonary edema is accompanied by elevated systemic venous pressure is not known. With alveolar flooding and disruption of the normal alveolar lining, resistance to airflow increases, dynamic and static compliance are reduced, and there is increasing inhomogeneity of airflow. Once the edema fluid floods into the airspaces, the proteins therein impair surfactant function. 30 One can account for most of the clinical findings (e.g., crackles and diffuse wheezing) based on interstitial, airway, and alveolar edema.
+
+Source 2 (Page 6597, Section: EXTRAPULMONARY MANIFESTATIONS):
+# EXTRAPULMONARY MANIFESTATIONS
+
+The examination of the lungs and pleura unlock only some of  the  clues  to  the  presence  of  lung  disease.  Looking  for extrapulmonary signs can often point toward a specific pulmonary disease or toward systemic diseases, such as lupus erythematosus, or toward diseases arising elsewhere in the
+
+Source 3 (Page 6598, Section: Table Data):
+--- [TABLE DETECTED] ---
+Disorder | Inspection | Palpation | Percussion | Auscultation
+Bronchial asthma (acute exacerbation) | Hyperinflation; use of accessory muscles of respiration | Impaired excursion; decreased fremitus | Hyperresonance; low diaphragm | Prolonged expiration: inspiratory and expiratory wheezes
+Pneumothorax (complete) | Lag on affected side, increased size of hemithorax | Absent fremitus on affected side | Hyperresonant or tympanitic | Absent breath sounds
+Pleural effusion (large) | Lag on affected side, increased size of hemithorax | Decreased fremitus, trachea and heart shifted away from affected side | Dullness or flatness | Absent breath sounds
+Atelectasis (lobar obstruction) | Lag on affected side | Decreased fremitus; trachea and heart shifted toward affected side | Dullness or flatness | Absent breath sounds
+Consolidation (pneumonia) | Possible lag or splinting | Increased fremitus on affected side | Dullness | Bronchial breath sounds; bronchophony, pectoriloquy, crackles
+--- [END OF TABLE] ---
+
+Source 4 (Page 10, Section: ■ DIAGNOSIS):
+# ■ DIAGNOSIS
+
+When confronted with possible CAP, the physician must ask two questions: is this pneumonia, and, if so, what is the likely pathogen? The former question is answered by clinical and radiographic methods, whereas the latter requires laboratory techniques.
+
+Clinical Diagnosis The differential diagnosis includes infectious and noninfectious entities, including acute bronchitis, exacerbations of chronic bronchitis, heart failure, and pulmonary embolism. The importance of a careful history cannot be overemphasized. The diagnosis of CAP requires a compatible history, such as cough, sputum production, fever and dyspnea, and a new infiltrate on chest radiography.
+
+Source 5 (Page 7181, Section: ):
+604
+
+PART 3 · Clinical Respiratory Medicine
+
+should be examined in these patients despite lack of classic signs and symptoms.
+
+In older patients, especially those with multiple comorbidities,  pneumonia  may  present  with  general  weakness, decreased appetite, altered mental status, incontinence, or decompensation due to underlying disease. The presence of tachypnea may precede other signs of pneumonia by 1 to 2 days. Tachycardia is another common initial sign but is less frequent and specific than tachypnea. Fever is absent in 30-40% of older patients. Owing to the lack of specific symptoms,  the  diagnosis  of  CAP  is  frequently  delayed  in older adults. 36,61  Older patients with pneumonia who present  with  altered  mental  status  without  fever  can  have  a delay  in  receiving  antibiotics  by  more  than  4  hours  after arrival, a delay that increases mortality. 99
+
+Occasionally, there is a 'classic' history, such as that of the patient with pneumococcal infection who presents with sudden onset of rigor followed by pleuritic chest pain, dyspnea,  and  cough  with  rusty  sputum.  Similarly,  a  patient with Legionella pneumonia may complain predominantly of diarrhea, fever, headache, confusion, and myalgia. For M. pneumoniae infection, extrapulmonary manifestations such as  myringitis,  encephalitis,  uveitis,  iritis,  and  myocarditis may be present. However, only rarely does the clinical history clearly suggest a specific etiology.
+
+The clinical and radiographic features of sporadic cases of viral pneumonia are usually not sufficiently characteristic to permit specific viral diagnosis or differentiation from bacterial pneumonias on clinical grounds alone. Exceptions include  measles  (eFig.  46.1)  and  varicella  pneumonia,  in which the associated rash establishes the diagnosis. Some cases of viral pneumonia present as severe CAP and have a rapid and relentless fatal course, with generalized alveolar and interstitial  opacities,  development  of  ARDS,  and  progressive respiratory failure.
+
+Information obtained from the clinical history and physical examination is insufficient to confirm the diagnosis of pneumonia. A definitive diagnosis requires the finding of a new opacity on the chest radiograph or computed tomography (CT) scan.
+
+Source 6 (Page 6044, Section: ):
+FIGURE 174-1 Nocardial pneumonia. A dense infiltrate with a possible cavity and several nodules are apparent in the right lung.
+
+Source 7 (Page 9292, Section: Clinical Assessment):
+# Clinical Assessment
+
+Patients with exacerbations of COPD must be carefully evaluated to identify those at risk of developing respiratory failure and to exclude other causes of respiratory failure. History and physical examination are useful. Although the Borg or visual analogue scales help gauge the level of dyspnea in clinical studies, a subjective assessment that dyspnea is worse than at baseline and of at least moderate severity suffices to identify patients who may be at risk for respiratory failure. Physical findings seen with severe exacerbations include tachypnea, accessory muscle use, abdominal paradox (inward paradoxical movement of the abdomen on inspiration demonstrating diaphragm  dysfunction),  Hoover  sign  (inspiratory  inward motion of the lower lateral rib cage), cyanosis, and mental status alterations.
+
+Source 8 (Page 986, Section: Airflow Obstruction due to Decreased Airway Diameter-):
+# Airflow Obstruction due to Decreased Airway Diameter-
+
+Example: Acute Asthma During an episode of acute asthma, luminal narrowing due to smooth muscle constriction as well as inflammation and thickening within the small- and medium-sized bronchi raise frictional resistance and reduce airflow. 'Scooping' of the flow-volume loop is caused by reduction of airflow, especially at lower lung volumes. Often, airflow obstruction can be reversed by inhalation of β 2 -adrenergic agonists acutely or by treatment with inhaled steroids chronically. TLC usually remains normal (although elevated TLC is sometimes seen in long-standing asthma), but FRC may be dynamically elevated. RV is often increased due to exaggerated airway closure at low lung volumes, and this elevation of RV reduces FVC. Because central airways are narrowed, R aw  is usually elevated. Mild arterial hypoxemia is often present due to perfusion of relatively underventilated alveoli distal to obstructed airways (and is responsive to oxygen supplementation), but DLco is normal or mildly elevated.
+
+Source 9 (Page 8613, Section: ):
+104  · Trauma and Blast Injuries
+
+1459.e3
+
+eFigure 104.7 Blunt thoracic traumatic injury: pulmonary laceration. (A) Frontal chest radiograph performed in a patient following a motor vehicle collision shows right lower lobe consolidation containing an air-  fluid level (arrows). (B-D) Axial chest computed tomography scan displayed in lung windows shows numerous right lower lobe areas of cavitation (arrows) associated with surrounding consolidation, consistent with pulmonary laceration. (Courtesy Michael B. Gotway, MD.)
+
+Source 10 (Page 4360, Section: ):
+FOXF1, Forkhead Box F1 gene; GGO, ground-glass opacities; iPFT, infant pulmonary function test; PHTN, pulmonary hypertension; RML, right middle lobe.

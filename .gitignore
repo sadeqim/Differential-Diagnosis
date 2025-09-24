@@ -1,1 +1,3 @@
 rag_venv/
+__pycache__/
+Qdrant_RAG/kh_rag/
